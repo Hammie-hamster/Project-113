@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Intro p5.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+  <style type="text/css">
+  h3
+  {
+    font-size: 25px !important;
+  }
+  canvas {
+  	border:1px solid black;
+    background-image : URL("https://i.postimg.cc/63cjmfvH/bg1.jpg")
+  }
+  </style>
+</head>
+
+<body>
+<div class="container">
+	<h3 class="btn btn-primary">Introduction to p5.js</h3>
+	<hr>
+  <button onclick="take_snapshot()" class="btn btn-success">Take Snapshot</button>
+</div>
+
+<script src="main.js"></script>
+<script>
+
+function setup() {
+        canvas = createCanvas(640, 480);
+        canvas.position(150, 150);
+        video = createCapture(VIDEO);
+        video.hide();
+    }
+
+function draw() {
+    image(video, 50, 50, 530, 375);
+    //video, x, y, width, height
+
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    circle(50, 50, 80);
+
+    fill(0, 255, 0);
+    stroke(0, 255, 0);
+    circle(590, 50, 80);
+
+    fill(0, 0, 255);
+    stroke(0, 0, 255);
+    circle(50, 430, 80);
+
+    fill(255, 255, 0);
+    stroke(255, 255, 0);
+    circle(590, 430, 80);
+
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    rect(90, 40, 230, 20);
+    
+    fill(0, 255, 0);
+    stroke(0, 255, 0);
+    rect(320, 40, 230, 20);
+
+    fill(0, 0, 255);
+    stroke(0, 0, 255);
+    rect(90, 420, 230, 20);
+
+    fill(255, 255, 0);
+    stroke(255, 255, 0);
+    rect(320, 420, 230, 20);
+
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    rect(40, 90, 20, 150);
+
+    fill(0, 0, 255);
+    stroke(0, 0, 255);
+    rect(40, 240, 20, 150);
+
+    fill(0, 255, 0);
+    stroke(0, 255, 0);
+    rect(580, 90, 20, 150);
+
+    fill(255, 255, 0);
+    stroke(255, 255, 0);
+    rect(580, 240, 20, 150);
+    //x, y, width, height
+}
+
+function take_snapshot(){
+    save('Project-113.png')
+}
+</script>
+</body>
+
+</html>
