@@ -17,7 +17,7 @@
   }
   canvas {
   	border:1px solid black;
-    background-image : URL("https://i.postimg.cc/63cjmfvH/bg1.jpg")
+      background-image : URL("https://i.postimg.cc/63cjmfvH/bg1.jpg");
   }
   </style>
 </head>
@@ -26,22 +26,31 @@
 <div class="container">
 	<h3 class="btn btn-primary">Introduction to p5.js</h3>
 	<hr>
+    <label>Filter Color:</label>
+    <input id="color_name" placeholder="Enter Filter Color">
+    <br><br>
+    <button onclick="filter_tint()" class = "btn btn-warning">Apply Filter</button>
+    <br><br>
   <button onclick="take_snapshot()" class="btn btn-success">Take Snapshot</button>
 </div>
 
 <script src="main.js"></script>
 <script>
-
-function setup() {
+    function preload() {
+    }
+    
+    function setup() {
         canvas = createCanvas(640, 480);
-        canvas.position(150, 150);
+        canvas.position(110, 250);
         video = createCapture(VIDEO);
         video.hide();
+
+        tint_color = "";
     }
 
 function draw() {
-    image(video, 50, 50, 530, 375);
-    //video, x, y, width, height
+    image(video, 50, 50, 540, 380);
+    tint(tint_color);
 
     fill(255, 0, 0);
     stroke(255, 0, 0);
@@ -90,11 +99,15 @@ function draw() {
     fill(255, 255, 0);
     stroke(255, 255, 0);
     rect(580, 240, 20, 150);
-    //x, y, width, height
 }
 
 function take_snapshot(){
     save('Project-113.png')
+}
+
+function filter_tint()
+{
+    tint_color = document.getElementById("color_name").value;
 }
 </script>
 </body>
